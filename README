@@ -11,4 +11,4 @@
 	
 3. 启动服务 
 	
-		node convertor-server.js
+		node proxy-server.js
