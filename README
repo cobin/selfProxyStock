@@ -1,0 +1,14 @@
+安装步骤：
+
+1，安装依赖软件包。
+    
+    npm install -d
+    
+2，修改配置文件
+
+		修改etc下的配置文件，把setting.json-dist修改为setting.json.
+		打开setting.json文件修改里面的服务地址及端口即可
+	
+3. 启动服务 
+	
+		node convertor-server.js
