@@ -42,3 +42,8 @@ app.get('/:uri', function(req, res) {
 
 app.listen(8100);
 
+console.log('Server Port(8100) Started ' + new Date().toLocaleString());
+
+process.on('uncaughtException', function(e){
+    console.log(['uncaughtException:', e]);
+});
