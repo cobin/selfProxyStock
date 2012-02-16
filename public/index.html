@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WLAN网关简单管理界面</title>
+<script src="js/jquery-1.4.4.min.js"></script> 
+<script src="js/wlan.js"></script>
+</head>
+
+<body>
+注册
+<form id="reg" action="/Auth/Reg" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  用户名:
+  <input type="text" name="username" size=10>
+  密码:
+  <input type="password" name="password" size=10>
+  邮箱:
+  <input type="email" name="email" size=14>
+  问题:
+  <input type="text" name="quest" size=10>
+  回答:
+  <input type="text" name="answer" size=10>  
+  <input type="submit" value="注册">
+  会话ID:<input type="text" readonly id="regsession" value="">  
+</form>
+<hr>
+登录
+<form id="login" action="/Auth/Login" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  用户名:
+  <input type="text" name="username" size=10>
+  密码:
+  <input type="password" name="password" size=10>
+  <input type="submit" value="登录">
+  会话ID:<input type="text" readonly id="loginsession" value="">  
+</form>
+<hr>
+退出
+<form id="out" action="/Auth/Logout" method="get" onsubmit="$('#outmsg').html('');return wlanSubmit(this);" target="_blank">
+  session:
+  <input type="text" name="session">
+  <input type="submit" value="退出">
+  状态:<span id="outmsg"></span>
+</form>
+<hr>
+修改密码(测试使用可以用GET方式传入sessionid,手机测试正常通过header传sessionid)
+<form action="/Auth/ModifyPasswd" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  session:
+  <input type="text" name="session">
+   原密码:
+  <input type="password" name="oldpasswd">
+ 新密码: 
+  <input type="password" name="newpasswd">
+  <input type="submit" value="修改密码">
+</form>
+<hr>
+找回密码
+<form action="/Auth/GetPasswd" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  用户名:
+  <input type="text" name="user">
+   邮箱:
+  <input type="text" name="email">
+  <input type="submit" value="找回密码">
+</form>
+<hr>
+获取验证码(请短信上行验证码到106580684)
+<form id="captcha" action="/Auth/CAPTCHA" method="get" onsubmit="$('#captchacode').val('');return wlanSubmit(this);" target="_blank">
+  session:
+  <input type="text" name="session">
+  <input type="submit" value="验证码">
+  验证码:<input type="text" readonly id="captchacode" value=""> 
+</form>
+<hr>
+MO绑定(短信上行接口与N4无关)
+<form action="/Auth/MO2Bind" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  手机号:
+  <input type="text" name="MSISDN">
+  验证码:
+  <input type="text" name="Content">
+  <input type="submit" value="绑定">
+</form>
+<hr>
+MO取消绑定(短信上行接口与N4无关)
+<form action="/Auth/MO2CancelBind" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  手机号:
+  <input type="text" name="MSISDN">
+  <input type="submit" value="松绑">
+</form>
+<hr>
+询帐号,仅供测试，不对生产开放
+<form action="/Auth/User" method="get" onsubmit="return wlanSubmit(this);" target="_blank">
+  用户名:
+  <input type="text" name="user">
+  <input type="submit" value="信息">
+</form>
+<br/>
+<hr color=red>
+添加自选股
+<form action="/Stock/Add" id="stockadd" method="get" onsubmit="$('#stockaddmsg').val('');return wlanSubmit(this);" target="_blank">
+  会话ID:<input type="text" name="session">
+  股票代码:<input type="text" name="stock">
+  <input type="submit" value="添加">
+  信息:<span id="stockaddmsg"></span>
+</form>
+<hr>
+查询自选股
+<form action="/Stock/List" id="stocklist" method="get" onsubmit="$('#stocklistmsg').val('');return wlanSubmit(this);" target="_blank">
+  会话ID:<input type="text" name="session">
+  <input type="submit" value="查询">
+  结果:<span id="stocklistmsg"></span>
+</form>
+<hr>
+删除自选股
+<form action="/Stock/Remove" id="stockremove" method="get" onsubmit="$('#stockremovemsg').val('');return wlanSubmit(this);" target="_blank">
+  会话ID:<input type="text" name="session">
+  股票代码:<input type="text" name="stock">
+  <input type="submit" value="删除">
+  信息:<span id="stockremovemsg"></span>
+</form>
+</body>
+</html>
+

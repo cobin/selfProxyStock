@@ -1,0 +1,13 @@
+{
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6300
+  },
+	"selfstock": {
+    "url": "127.0.0.1",
+    "fakecodeurl": ""
+  },
+  "log" : {
+    "file": "log/server.log"
+  }
+}
