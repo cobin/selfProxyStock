@@ -19,7 +19,7 @@ var express = require('express');
 var app = express.createServer();
 app.use(express.static(__dirname + '/public'));
 
-fs.writeFileSync(__dirname + '/selfserver.pid', process.pid.toString(), 'ascii');
+fs.writeFileSync(__dirname + '/proxy-server.pid', process.pid.toString(), 'ascii');
 
 //自选股服务处理总接口，包含增加，删除，修改，下载，上传等动作
 app.get('/:uri', function(req, res) {
@@ -42,7 +42,7 @@ app.get('/:uri', function(req, res) {
 
 app.listen(8100);
 
-console.log('Server Port(8100) Started ' + new Date().toLocaleString());
+console.log('SelfStock Proxy Server Port(8100) Started ' + new Date().toLocaleString());
 
 process.on('uncaughtException', function(e){
     console.log(['uncaughtException:', e]);
