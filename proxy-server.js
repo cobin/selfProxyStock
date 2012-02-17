@@ -23,7 +23,7 @@ fs.writeFileSync(__dirname + '/proxy-server.pid', process.pid.toString(), 'ascii
 
 //自选股服务处理总接口，包含增加，删除，修改，下载，上传等动作
 app.get('/:fakecode/Stocks', function(req, res) {
-	_logger.info([ 'SelfStock', req.url, req.query.action ]);
+	_logger.info([ 'SelfStock', req.url ]);
 		
 	var sAction = req.query.action;
 	
