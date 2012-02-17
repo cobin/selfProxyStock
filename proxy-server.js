@@ -22,10 +22,8 @@ app.use(express.static(__dirname + '/public'));
 fs.writeFileSync(__dirname + '/proxy-server.pid', process.pid.toString(), 'ascii');
 
 //自选股服务处理总接口，包含增加，删除，修改，下载，上传等动作
-app.get('/:uri', function(req, res) {
-	_logger.info([ 'SelfStock', req.url, req.query.action ].join("\t"));
-	var msg = "";
-	req.fakecode =url.parse(req.url).pathname.split("/")[0];
+app.get('/:fakecode/Stocks', function(req, res) {
+	_logger.log([ 'SelfStock', req.url, req.query.action ]);
 		
 	var sAction = req.query.action;
 	
