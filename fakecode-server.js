@@ -12,11 +12,10 @@ fs.writeFileSync(__dirname + '/fakecode-server.pid', process.pid.toString(), 'as
 
 app.get('/fakecode', function(req, res) {
 	console.log([ 'fakecode', req.query.code ]);	
-	var mobile = "";
-	
-	if(fakecode=="C57AZZ1") {
+	var mobile = "";	
+	if(req.query.code=="C57AZZ1") {
 		mobile="13963632525";
-	}else if(fakecode=="C57AZZ0") {
+	}else if(req.query.code=="C57AZZ0") {
 		mobile="13955882233";		
 	}
 	res.send(mobile);
