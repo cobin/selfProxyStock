@@ -35,14 +35,14 @@ app.get('/:fakecode/Stocks', function(req, res) {
 		}else{
 			selfstock.add(req,res);
 		}
-	}else if(sAction='delete'){ //删除自选股
+	}else if(sAction='remove'){ //删除自选股
 		selfstock.delete(req,res);
 	}else{
 		res.send('{"error":"无效的请求","result":""}');
 	}	
 });
 
-app.listen(8100);
+app.listen(settings.selfport);
 
 console.log('SelfStock Proxy Server Port(8100) Started ' + new Date().toLocaleString());
 
