@@ -44,7 +44,7 @@ app.get('/:fakecode/Stocks', function(req, res) {
 
 app.listen(settings.selfport);
 
-console.log('SelfStock Proxy Server Port(8100) Started ' + new Date().toLocaleString());
+console.log('SelfStock Proxy Server Port('+settings.selfport+') Started ' + new Date().toLocaleString());
 
 process.on('uncaughtException', function(e){
     console.log(['uncaughtException:', e]);
