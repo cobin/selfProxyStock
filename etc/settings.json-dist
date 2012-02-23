@@ -5,8 +5,9 @@
     "port": 6300
   },
 	"selfstock": {
-    "url": "127.0.0.1",
-    "fakecodeurl": ""
+    "url": ["http://211.151.76.150:58040"," http://211.136.108.165:58040","http://218.204.252.229:8080"],
+    "query":"/SelectedStockServices/SelfStockServices",
+    "fakecodeurl": "http://127.0.0.1:8081/GetMSISDNByIDCode?idcode="
   },
   "log" : {
     "file": "log/server.log"
