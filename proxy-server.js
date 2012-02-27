@@ -25,18 +25,18 @@ app.get('/:fakecode/Stocks', function(req, res) {
 		
 	var sAction = req.query.action;
 	
-	if(sAction=='list'){ //查询自选股回应内容：600000,600001
+	if(sAction==='list'){ //查询自选股回应内容：600000,600001
 		selfstock.query(req,res);
-	}else if(sAction=='add'){ //添加自选股
+	}else if(sAction==='add'){ //添加自选股
 		if(req.query.stocks.indexOf(",")!=-1){
 			selfstock.multi(req,res);
 		}else{
 			selfstock.add(req,res);
 		}
-	}else if(sAction='remove'){ //删除自选股
+	}else if(sAction==='remove'){ //删除自选股
 		selfstock.delete(req,res);
 	}else{
-		res.send('{"error":"无效的请求","result":""}');
+		res.send('{"error":"无效的请求","result":null}');
 	}	
 });
 
