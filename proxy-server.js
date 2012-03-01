@@ -47,3 +47,7 @@ console.log('SelfStock Proxy Server Port('+settings.selfport+') Started ' + new 
 process.on('uncaughtException', function(e){
     console.log(['uncaughtException:', e]);
 });
+
+process.on('exit',function(){
+    console.log("Exit SelfStock Proxy Server.");	
+});

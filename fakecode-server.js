@@ -28,3 +28,7 @@ console.log('Fakecode Server Port(8101) Started ' + new Date().toLocaleString())
 process.on('uncaughtException', function(e){
     console.log(['uncaughtException:', e]);
 });
+
+process.on('exit',function(){
+    console.log("Exit Fackecode Server.");	
+});
