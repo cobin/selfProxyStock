@@ -22,7 +22,7 @@ fs.writeFileSync(__dirname + '/proxy-server.pid', process.pid.toString(), 'ascii
 //自选股服务处理总接口，包含增加，删除，修改，下载，上传等动作
 app.get('/:fakecode/Stocks', function(req, res) {
 	_logger.info([ 'SelfStock', req.url ]);
-		
+	res.header("Content-Type","application/json; charset=utf-8");	
 	var sAction = req.query.action;
 	
 	if(sAction==='list'){ //查询自选股回应内容：600000,600001
